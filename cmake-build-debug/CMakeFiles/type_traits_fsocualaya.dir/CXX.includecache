@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/dlist.h
+iterator.h
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/iterator.h
+
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/iterator.h
+node.h
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/node.h
+
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/main.cpp
+iostream
+-
+slist.h
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/slist.h
+dlist.h
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/dlist.h
+
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/node.h
+
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/slist.h
+iterator.h
+/home/damin/Escritorio/sem3/type-traits-fsocualaya/iterator.h
+

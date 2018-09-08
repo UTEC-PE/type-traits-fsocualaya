@@ -29,22 +29,57 @@ class SList {
 
         bool find(T search, Node<T> **&pointer) {
             // TODO
+            pointer = &(this->head);
+            while(*pointer){
+                if(!cmp(search,(*pointer)->data)){
+                    break;
+                }
+                pointer = &((*pointer)->next);
+            }
         }
              
         bool insert(T data) {
             // TODO
+            auto* node = new Node(data);
+            if(this->head){
+                Node<T>** pointer;
+                if(find(data,pointer)){
+                    return false;
+                }
+                else{
+                    node->next = *pointer;
+                    *pointer = node;
+                    return true;
+                }
+            }
+            else{
+                this->head = node;
+                return true;
+            }
         }
              
         bool remove(T item) {
             // TODO
+            Node<T> **pointer;
+            if(this->head){
+                if(find(item,pointer)){
+                    Node<T> *tmp = (*pointer)->next;
+                    *pointer = tmp;
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }  
              
         iterator begin() {
             // TODO
+            return iterator(this->head);
         }
              
         iterator end() {
             // TODO
+            return iterator(nullptr);
         }
              
         ~SList() {
