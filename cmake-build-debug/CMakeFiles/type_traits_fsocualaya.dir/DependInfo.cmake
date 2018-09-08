@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/damin/Escritorio/sem3/type-traits-fsocualaya/main.cpp" "/home/damin/Escritorio/sem3/type-traits-fsocualaya/cmake-build-debug/CMakeFiles/type_traits_fsocualaya.dir/main.cpp.o"
+  "/home/pyxel/Desktop/UTEC/4to_semestre/AED/semana3/type-traits-fsocualaya/main.cpp" "/home/pyxel/Desktop/UTEC/4to_semestre/AED/semana3/type-traits-fsocualaya/cmake-build-debug/CMakeFiles/type_traits_fsocualaya.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

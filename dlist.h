@@ -38,9 +38,9 @@ class DList {
         };
 
         void push_front(T data) {
-            auto* node = new Node(data);
+            auto* node = new Node<T>(data);
+            node->next=this->head;
             if(head){
-                node->next=this->head;
                 this->head->prev = node;
                 this->head = node;
             }
@@ -51,10 +51,10 @@ class DList {
 
         void push_back(T data) {
             // TODO
-            auto* node = new Node(data);
-            if(this->tail){
+            auto* node = new Node<T>(data);
+            node->prev = this->tail;
+            if(this->head){
                 this->tail->next = node;
-                node->prev = this->tail;
                 this->tail = node;
             }
             else{
@@ -64,28 +64,35 @@ class DList {
              
         void pop_front() {
             // TODO
-            auto tmp = this->head;
-            if(this->head){
+            if(!this->head)
+                return;
+            if(this->head and this->head->next){
                 this->head = this->head->next;
-                delete tmp;
+                delete this->head->prev;
+            }
+            else if(this->head and !this->head->next){
+                delete this->head;
             }
         }
              
         void pop_back() {
             // TODO
-            auto tmp = this->tail;
-            if(this->tail){
+            if(!this->head)
+                return;
+            if(this->tail and this->tail->prev){
                 this->tail = this->tail->prev;
-                delete tmp;
+                delete this->tail->next;
             }
+            else
+                delete this->tail;
         }
              
         iterator begin() {
-            return DListIterator<T>(this->head);
+            return iterator(this->head);
         }
              
         iterator end() {
-            return DListIterator<T>(this->tail);
+            return iterator(this->tail);
         }
              
         ~DList() {

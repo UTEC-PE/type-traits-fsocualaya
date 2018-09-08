@@ -14,6 +14,7 @@ class Iterator {
              
         Iterator<T> operator=(Iterator<T> other){
             current = other.current;
+            return *this;
         };
         bool operator!=(Iterator<T> other){
             return current != other.current;

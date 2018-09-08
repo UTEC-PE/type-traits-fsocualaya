@@ -8,7 +8,12 @@ class SListIterator : public Iterator<T> {
     public: 
         SListIterator() : Iterator<T>() {};
         SListIterator(Node<T> *current) : Iterator<T>(current) {};
-        SListIterator<T> operator++();
+        SListIterator<T> operator++(){
+            if(this->current){
+                this->current = this->current->next;
+                return *this;
+            }
+        };
 };
 
 template <typename Tr>
@@ -36,11 +41,12 @@ class SList {
                 }
                 pointer = &((*pointer)->next);
             }
+            return ((*pointer)->data == search);
         }
              
         bool insert(T data) {
             // TODO
-            auto* node = new Node(data);
+            auto* node = new Node<T>(data);
             if(this->head){
                 Node<T>** pointer;
                 if(find(data,pointer)){
