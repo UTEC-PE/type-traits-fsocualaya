@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/type_traits_fsocualaya.dir/main.cpp.o  -o type_traits_fsocualaya 

@@ -8,8 +8,18 @@ class DListIterator : public Iterator<T> {
     public: 
         DListIterator() : Iterator<T>() {};
         DListIterator(Node<T> *current) : Iterator<T>(current) {};
-        DListIterator<T> operator++();
-        DListIterator<T> operator--();
+        DListIterator<T> operator++(){
+            if(this->current){
+                this->current = this->current->next;
+                return *this;
+            }
+        };
+        DListIterator<T> operator--(){
+            if(this->current){
+                this->current = this->current->prev;
+                return *this;
+            }
+        };
 };
 
 template <typename Tr>
@@ -28,27 +38,61 @@ class DList {
         };
 
         void push_front(T data) {
-            // TODO
+            auto* node = new Node<T>(data);
+            node->next=this->head;
+            if(head){
+                this->head->prev = node;
+                this->head = node;
+            }
+            else{
+                this->head = this->tail = node;
+            }
         }
 
         void push_back(T data) {
             // TODO
+            auto* node = new Node<T>(data);
+            node->prev = this->tail;
+            if(this->head){
+                this->tail->next = node;
+                this->tail = node;
+            }
+            else{
+                this->head = this->tail = node;
+            }
         }
              
         void pop_front() {
             // TODO
+            if(!this->head)
+                return;
+            if(this->head and this->head->next){
+                this->head = this->head->next;
+                delete this->head->prev;
+            }
+            else if(this->head and !this->head->next){
+                delete this->head;
+            }
         }
              
         void pop_back() {
             // TODO
+            if(!this->head)
+                return;
+            if(this->tail and this->tail->prev){
+                this->tail = this->tail->prev;
+                delete this->tail->next;
+            }
+            else
+                delete this->tail;
         }
              
         iterator begin() {
-            // TODO
+            return iterator(this->head);
         }
              
         iterator end() {
-            // TODO
+            return iterator(this->tail);
         }
              
         ~DList() {
