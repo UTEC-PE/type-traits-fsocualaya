@@ -9,13 +9,13 @@ class DListIterator : public Iterator<T> {
         DListIterator() : Iterator<T>() {};
         DListIterator(Node<T> *current) : Iterator<T>(current) {};
         DListIterator<T> operator++(){
-            if(this->current){
+            if(this->current){ // Con este if, no vas a retornar nada si la lista está vacía
                 this->current = this->current->next;
                 return *this;
             }
         };
         DListIterator<T> operator--(){
-            if(this->current){
+            if(this->current){ // Con este if, no vas a retornar nada si la lista está vacía
                 this->current = this->current->prev;
                 return *this;
             }

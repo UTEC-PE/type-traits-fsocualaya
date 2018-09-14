@@ -9,7 +9,7 @@ class SListIterator : public Iterator<T> {
         SListIterator() : Iterator<T>() {};
         SListIterator(Node<T> *current) : Iterator<T>(current) {};
         SListIterator<T> operator++(){
-            if(this->current){
+            if(this->current){ // Con este if, no vas a retornar nada si la lista está vacía
                 this->current = this->current->next;
                 return *this;
             }
@@ -64,7 +64,7 @@ class SList {
             }
         }
              
-        bool remove(T item) {
+        bool remove(T item) { // No estás borrando el Nodo
             // TODO
             Node<T> **pointer;
             if(this->head){
